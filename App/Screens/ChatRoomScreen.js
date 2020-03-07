@@ -1,7 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-class Home extends React.Component {
+//TODO
+class ChatRoomScreen extends React.Component {
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -11,4 +12,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default ChatRoomScreen;
