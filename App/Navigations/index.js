@@ -1,3 +1,10 @@
+/**
+ * Created on : 08/03/20
+ * Author     : arioki
+ * Name       : Yoga Setiawan
+ * GitHub     : https://github.com/arioki
+ */
+
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';

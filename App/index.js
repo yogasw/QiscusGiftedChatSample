@@ -1,9 +1,8 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
+ * Created on : 08/03/20
+ * Author     : arioki
+ * Name       : Yoga Setiawan
+ * GitHub     : https://github.com/arioki
  */
 
 import React from 'react';
