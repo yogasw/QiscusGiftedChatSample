@@ -14,7 +14,7 @@ import ChatRoomScreen from '../Screens/ChatRoomScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import ListContactScreen from '../Screens/ListContactScreen';
 import {TouchableOpacity} from 'react-native';
-import TextPrimary from '../Coomponent/Text/TextPrimary';
+import TextPrimary from '../Component/Text/TextPrimary';
 
 const Stack = createStackNavigator();
 

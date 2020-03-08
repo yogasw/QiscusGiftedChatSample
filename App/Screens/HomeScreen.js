@@ -7,7 +7,7 @@
 
 import React from 'react';
 import {View} from 'react-native';
-import TextPrimary from '../Coomponent/Text/TextPrimary';
+import TextPrimary from '../Component/Text/TextPrimary';
 
 //TODO
 class HomeScreen extends React.Component {

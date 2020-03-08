@@ -8,7 +8,7 @@
 import React from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
 import * as Qiscus from '../Services/qiscus';
-import TextPrimary from '../Coomponent/Text/TextPrimary';
+import TextPrimary from '../Component/Text/TextPrimary';
 
 //TODO
 class ListContactScreen extends React.Component {
@@ -36,7 +36,9 @@ class ListContactScreen extends React.Component {
   renderListContacts = users => {
     return users.map(user => (
       <TouchableOpacity
-        onPress={() => this.props.navigation.navigate('ChatRoomScreen')}
+        onPress={() =>
+          this.props.navigation.navigate('ChatRoomScreen', {user: user})
+        }
         style={{flexDirection: 'row', alignItems: 'center', padding: 10}}>
         <Image
           style={{width: 50, height: 50}}

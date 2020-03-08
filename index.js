@@ -1,3 +1,4 @@
+GLOBAL.XMLHttpRequest = GLOBAL.originalXMLHttpRequest || GLOBAL.XMLHttpRequest;
 /**
  * Created on : 08/03/20
  * Author     : arioki
