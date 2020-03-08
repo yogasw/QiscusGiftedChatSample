@@ -12,9 +12,9 @@ class TextPrimary extends Component {
     super();
   }
   render() {
-    const {text} = this.props;
+    const {text, style} = this.props;
 
-    return <Text> {text} </Text>;
+    return <Text style={style}> {text} </Text>;
   }
 }
 export default TextPrimary;

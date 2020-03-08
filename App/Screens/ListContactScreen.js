@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import * as Qiscus from '../Services/qiscus';
 import TextPrimary from '../Coomponent/Text/TextPrimary';
 
@@ -35,19 +35,24 @@ class ListContactScreen extends React.Component {
   };
   renderListContacts = users => {
     return users.map(user => (
-      <View>
-        <TextPrimary text={user.name !== '' ? user.name : user.email} />
+      <TouchableOpacity
+        onPress={() => this.props.navigation.navigate('ChatRoomScreen')}
+        style={{flexDirection: 'row', alignItems: 'center', padding: 10}}>
         <Image
           style={{width: 50, height: 50}}
           source={{uri: user.avatar_url}}
         />
-      </View>
+        <TextPrimary
+          style={{marginLeft: 10}}
+          text={user.name !== '' ? user.name : user.email}
+        />
+      </TouchableOpacity>
     ));
   };
   render() {
     const {dataUsers} = this.state;
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, padding: 16}}>
         {dataUsers.users ? (
           this.renderListContacts(dataUsers.users)
         ) : (
