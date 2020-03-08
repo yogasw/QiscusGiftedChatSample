@@ -7,13 +7,20 @@
 
 import React from 'react';
 import {Text, View} from 'react-native';
+import * as Qiscus from '../Services/qiscus';
 
-//TODO
 class SplashScreen extends React.Component {
+  componentDidMount() {
+    Qiscus.init();
+    setTimeout(() => {
+      this.props.navigation.replace('LoginScreen');
+    }, 300);
+  }
+
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Splash Screen</Text>
+        <Text>Loading..</Text>
       </View>
     );
   }

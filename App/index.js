@@ -8,8 +8,8 @@
 import React from 'react';
 import Navigations from './Navigations';
 
-const App: () => React$Node = () => {
-  return <Navigations />;
-};
-
-export default App;
+export default class App extends React.Component {
+  render() {
+    return <Navigations />;
+  }
+}

@@ -6,14 +6,27 @@
  */
 
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import TextPrimary from '../Coomponent/Text/TextPrimary';
 
 //TODO
 class HomeScreen extends React.Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      headerTitle: 'selamat datang',
+      headerRight: <TextPrimary text={'masuk'} />,
+    };
+  };
+  constructor() {
+    super();
+  }
+
+  componentDidMount() {}
+
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Home Screen</Text>
+      <View style={{flex: 1}}>
+        <TextPrimary text={'yo'} />
       </View>
     );
   }
