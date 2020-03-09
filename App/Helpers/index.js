@@ -13,14 +13,14 @@ export const QiscusMessageToGiftedChat = message => {
     user: {
       _id: message.email,
       name: message.username !== '' ? message.username : message.email,
-      avatar: message.avatar_url,
+      avatar: message.user_avatar_url,
     },
     image: null,
     video: null,
     audio: null,
     system: null,
-    sent: message.status === 'sent',
-    received: message.status === 'received',
+    sent: message.status === 'sent' || message.status === 'delivered',
+    received: message.status === 'delivered',
     pending: false,
     quickReplies: null,
   };
@@ -41,8 +41,8 @@ export const QiscusMessageUpdateToGiftedChat = data => {
     video: null,
     audio: null,
     system: null,
-    sent: comment.status === 'sent',
-    received: comment.status === 'received',
+    sent: comment.status === 'sent' || comment.status === 'delivered',
+    received: comment.status === 'delivered',
     pending: false,
     quickReplies: null,
   };

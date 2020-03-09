@@ -115,6 +115,7 @@ class ChatRoomScreen extends React.Component {
         user={{
           _id: Qiscus.currentUser().email,
         }}
+        placeholder={'Type a message...'}
       />
     );
   }
@@ -132,7 +133,13 @@ class ChatRoomScreen extends React.Component {
     );
   };
 
-  _onMessageDelivered = message => {};
+  _onMessageDelivered = data => {
+    console.log('_onMessageDelivered', QiscusMessageUpdateToGiftedChat(data));
+    this.updateMessage(
+      data.comment.unique_id,
+      QiscusMessageUpdateToGiftedChat(data),
+    );
+  };
 
   _onOnline = data => {};
 
