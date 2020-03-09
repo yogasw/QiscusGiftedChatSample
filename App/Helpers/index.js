@@ -7,9 +7,9 @@
 
 export const QiscusMessageToGiftedChat = message => {
   return {
-    _id: message.id,
+    _id: message.unique_temp_id,
     text: message.message,
-    createdAt: new Date(message.unix_timestamp),
+    createdAt: new Date(message.timestamp),
     user: {
       _id: message.user_id,
       name: message.username !== '' ? message.username : message.email,
@@ -19,7 +19,7 @@ export const QiscusMessageToGiftedChat = message => {
     video: null,
     audio: null,
     system: null,
-    sent: message.status === 'send',
+    sent: message.status === 'sent',
     received: message.status === 'received',
     pending: false,
     quickReplies: null,

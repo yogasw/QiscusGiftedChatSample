@@ -88,8 +88,8 @@ export const init = () => {
       },
     },
   });
-  qiscus.debugMode = true;
-  qiscus.debugMQTTMode = true;
+  /*  qiscus.debugMode = true;
+  qiscus.debugMQTTMode = true;*/
 };
 
 export const currentUser = () => qiscus.userData;
