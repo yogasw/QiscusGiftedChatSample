@@ -8,7 +8,10 @@
 import React from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import * as Qiscus from '../Services/qiscus';
-import {QiscusMessageToGiftedChat} from '../Helpers';
+import {
+  QiscusMessageToGiftedChat,
+  QiscusMessageUpdateToGiftedChat,
+} from '../Helpers';
 import xs from 'xstream';
 
 class ChatRoomScreen extends React.Component {
@@ -80,17 +83,17 @@ class ChatRoomScreen extends React.Component {
       .sendComment(this.state.room.id, messages[0].text, messages[0]._id)
       .then(comment => {
         console.log('sendComment', comment);
-        this.updateMessage(messages[0], QiscusMessageToGiftedChat(comment));
+        this.updateMessage(messages[0]._id, QiscusMessageToGiftedChat(comment));
       })
       .catch(function(error) {
         // On error
       });
   };
-  updateMessage = (message, newMessage) => {
+  updateMessage = (id, newMessage) => {
     this.setState(state => ({
       messages: {
         ...state.messages,
-        [message._id]: newMessage,
+        [id]: newMessage,
       },
     }));
   };
@@ -110,7 +113,7 @@ class ChatRoomScreen extends React.Component {
         messages={Object.values(this.state.messages)}
         onSend={messages => this.sendMessage(messages)}
         user={{
-          _id: Qiscus.currentUser().id,
+          _id: Qiscus.currentUser().email,
         }}
       />
     );
@@ -121,7 +124,13 @@ class ChatRoomScreen extends React.Component {
     this.addMessage(QiscusMessageToGiftedChat(message));
   };
 
-  _onMessageRead = message => {};
+  _onMessageRead = data => {
+    console.log('_onMessageRead', QiscusMessageUpdateToGiftedChat(data));
+    this.updateMessage(
+      data.comment.unique_id,
+      QiscusMessageUpdateToGiftedChat(data),
+    );
+  };
 
   _onMessageDelivered = message => {};
 
